@@ -22,13 +22,13 @@ drawout(sample, d);
 % game starts
 key = 0;
 while game_on
-    key = input('direction to move in [wasd]:(q to quit)','s');
-    
+    key = input('move in [wasd]:(q to quit)','s');
+
     % ------exit----------
     if key == 'q'
-       game_on = 0; 
+       game_on = 0;
     end
-    
+
     % ------key validation--------
     if length(key) > 1
         key = key(1);
@@ -37,13 +37,14 @@ while game_on
             continue;
         end
     end
-    
+
     % ------move----------
     if any(key == ['w', 'a', 's', 'd'])
        sample = move(sample, d, key);
     end
-    
+
+
     % ------draw out matrix----
+
     drawout(sample, d);
 end
-
