@@ -2,7 +2,7 @@ clear; clc;
 game_on = 1;
 
 % initialize a square
-d = round(str2num(input('Dimension:','s')));
+d = round(str2double(input('Dimension:','s')));
 clc;
 len = d.^2; % total number of elements of the matrix.
 sample = 1:1:len;
