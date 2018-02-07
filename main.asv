@@ -25,7 +25,6 @@ key = 0; target = 1;
 while game_on
     distance = distanceFromCursor(sample, 1);
     distanceToOrigin = distanceFromExpected(sample, 1);
-    % TODO: remove manual move and apply automove for '1'.
     disp(distance);
     disp(distanceToOrigin);
     key = input('move in [wasd]:(q to quit)','s');
@@ -68,13 +67,12 @@ function distance = distanceFromCursor(sample, target_num)
     cursor = size(sample, 2).^2;
     [cursor_loc(1), cursor_loc(2)] = find(sample == cursor);
     [target_loc(1), target_loc(2)] = find(sample == target_num);
-    distance = -target_loc + cursor_loc;
+    distance = target_loc - cursor_loc;
 end
 
 function distance = distanceFromExpected(sample, target_num)
     d = size(sample, 2);
-    expected_loc(1) = 1 + floor(target_num./d);
-    expected_loc(2) = target_num - d*floor(target_num./d);
-    [present_loc(1), present_loc(2)] = find(sample == target_num);
-    distance = expected_loc - present_loc;
+    distance(1) = 1 + floor(target_num./d);
+    distance(2) = target_num - d*floor(target_num./d);
+    
 end

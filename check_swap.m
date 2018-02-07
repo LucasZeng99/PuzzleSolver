@@ -1,8 +1,10 @@
-function sample = check_swap(sample, target, shift_r, shift_c)
+function [sample, valid] = check_swap(sample, target, shift_r, shift_c)
     try 
         sample = swap(sample, target, shift_r, shift_c);
+        valid = 1;
     catch ME
         if (strcmp(ME.identifier,'MATLAB:badsubscript'))
+            valid = 0;
             % pass
         end
     end
