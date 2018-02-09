@@ -29,7 +29,7 @@ distanceFromO = distanceFromExpected(sample, target);
 disp(distanceToC);
 disp(distanceFromO);
 
-[sample, target] = automove(sample, target, distanceToC, distanceFromO);
+sample = automove(sample, target, distanceToC, distanceFromO);
 
 %{
 key = input('move in [wasd]:(q to quit)','s');
